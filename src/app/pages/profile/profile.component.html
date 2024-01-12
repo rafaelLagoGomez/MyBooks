@@ -1,0 +1,44 @@
+
+<div class="row">
+    <div class="card text-bg-secondary mb-3" style="max-width: 18rem;">
+        <div class="card-header">
+            <img class="userpic" src={{user.photo}} alt="">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{user.name}} {{user.last_name}}</h5>
+            <br>
+            <p class="card-text">Nombre: {{user.name}}</p>
+            <p class="card-text">Apellidos: {{user.last_name}}</p>
+            <p class="card-text">Correo: {{user.email}}</p>
+        </div>
+    </div>
+    
+    <div class="card text-bg-secondary mb-3" style="max-width: 18rem;">
+        <h4 class="card-header">Editar datos</h4>
+        <div class="edit-body">
+            <div>
+                <div class="col-md-10">
+                    <label for="validationTooltip01" class="form-label"></label>
+                    <input type="text" class="form-control" id="" value="Nombre" required #inputName>
+                </div>
+                <div class="col-md-10">
+                    <label for="validationTooltip01" class="form-label"></label>
+                    <input type="text" class="form-control" id="" value="Apellidos" required #inputLastName>
+                </div>
+                <div class="col-md-10">
+                    <label for="validationTooltip01" class="form-label"></label>
+                    <input type="text" class="form-control" id="" value="Correo" required #inputEmail>
+                </div>
+                <div class="col-md-10">
+                    <label for="validationTooltip01" class="form-label"></label>
+                    <input type="text" class="form-control" id="" value="Foto" required #inputPhoto>
+                </div>
+            </div>
+            <br>
+            <div class="col-12">
+                <button (click)="changeDataUser(inputName, inputLastName, inputEmail, inputPhoto)" class="btn btn-primary" type="submit">Modificar</button>
+            </div>
+        </div>
+    </div>
+</div>
+

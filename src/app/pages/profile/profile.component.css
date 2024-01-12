@@ -1,0 +1,45 @@
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(fondoprofile.jpg);
+    background-size: cover;
+    width: 100vw;
+    height: 100vh;
+}
+
+.card-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.userpic {
+    width: 185px;
+    height: 185px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.edit-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.col-12 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 40px;
+}

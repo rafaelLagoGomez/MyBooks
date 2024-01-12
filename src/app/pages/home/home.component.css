@@ -1,15 +1,24 @@
 
-.container {
+.row {
     background: url(fondolibreria.jpg);
     opacity: 0.9;
     background-size: cover;
     width: 100vw;
     height: 100vh;
     display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    /* gap: 800px; */
+}
+
+.texthome{
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 550px;  
+    gap: 400px;
+
 }
 
 .texto-bio {
@@ -19,4 +28,5 @@
     font-family: var(--primaryfont);
     font-size: 30px;
     font-weight: 800;
+    /* padding-left: 50px; */
 }
