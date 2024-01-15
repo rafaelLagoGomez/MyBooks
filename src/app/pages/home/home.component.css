@@ -1,6 +1,6 @@
 
 .row {
-    background: url(fondolibreria.jpg);
+    background: url("../../../assets/fondolibreria.jpg");
     opacity: 0.9;
     background-size: cover;
     width: 100vw;

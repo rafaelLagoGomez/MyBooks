@@ -1,0 +1,42 @@
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: url("../../../assets/fondobooks.jpg");
+    background-size: cover;
+    width: 100vw;
+    height: 100%;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.cards{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.alert {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 400px;
+    height: 40px;
+}
+
+
+.even-class {
+    background-color: black;
+}
+
+
+.odd-class {
+    background-color: grey;
+    /* color: black; */
+}
+
