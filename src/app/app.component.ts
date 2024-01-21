@@ -6,6 +6,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { FormRegisterComponent } from './components/form-register/form-register.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { CardComponent } from './components/card/card.component';
 
 @Component({
   selector: 'app-root',
