@@ -4,6 +4,7 @@ import { Book } from '../../models/book';
 import { CommonModule } from '@angular/common';
 import { ReferenciaPipe } from '../../pipes/referencia.pipe';
 import { CardComponent } from '../../components/card/card.component';
+import { BooksService } from '../../services/books.service';
 
 @Component({
   selector: 'app-books',
@@ -14,68 +15,35 @@ import { CardComponent } from '../../components/card/card.component';
 })
 
 export class BooksComponent {
-  public books: Book [] = [
-    {
-      id_book: 0,
-      id_user: 0,
-      title: "Alas de Sangre",
-      type: "Belic",
-      author: "Rebecca Yarros",
-      price: 21.75,
-      photo: "https://imagessl0.casadellibro.com/a/l/s5/90/9788408279990.webp",
-    } ,
 
-    {
-      id_book: 1,
-      id_user: 0,
-      title: "Maldita Rom",
-      type: "Historic",
-      author: "Santiago Posteguillo",
-      price: 23.65,
-      photo: "https://imagessl4.casadellibro.com/a/l/s5/64/9788466676564.webp",
-    } ,
+  public books: Book [] = [];
 
-    {
-      id_book: 2,
-      id_user: 0,
-      title: "La red Púpura",
-      type: "Thriller",
-      author: "Carmen Mola",
-      price: 7.55,
-      photo: "https://imagessl7.casadellibro.com/a/l/s5/97/9788466372497.webp",
-    } ,
+  public findedBook!: Book | undefined;
+  public noBook: string = "";
 
-    {
-      id_book: 3,
-      id_user: 0,
-      title: "La armadura luz",
-      type: "Historic",
-      author: "Ken Follett",
-      price: 23.65,
-      photo: "https://imagessl0.casadellibro.com/a/l/s5/30/9788401030130.webp",
-    } 
-  ]
- 
-  
-  public addNewBook(inputFoto: HTMLInputElement, inputTitulo: HTMLInputElement, inputAutor: HTMLInputElement, inputTipo: HTMLInputElement, inputPrecio: HTMLInputElement, inputCodigo: HTMLInputElement) {
-    const newBooks: Book = {
-      id_book: parseFloat(inputCodigo.value),
-      id_user: 0,
-      title: inputTitulo.value,
-      type: inputTipo.value,
-      author: inputAutor.value,
-      price: parseFloat(inputPrecio.value),
-      photo: inputFoto.value
+  constructor (private readonly booksService: BooksService) {}
+
+
+  ngOnInit() {
+    this.books = this.booksService.getAll()
+  }
+
+
+  public findBook(inputId: HTMLInputElement) {
+    const book = this.booksService.getOne(Number(inputId.value));
+    if(book) {
+      this.findedBook = book;
+      this.noBook =  "";
+    } else {
+      this.findedBook = undefined;
+      this.noBook = "No se ha encontrado ningún libro con ese Nº de Referencia";
     }
-    this.books.push(newBooks);
-  }
-  
-
-  public bookDeleted(id_book: number) {
-    const indexBook = this.books.findIndex(book => book.id_book === id_book);
-    this.books.splice(indexBook,1);
   }
 
+
+  public bookToDelete(id_book: number) {
+    this.booksService.delete(id_book);
+  }
 }
 
 
@@ -83,12 +51,13 @@ export class BooksComponent {
 
 
 
+
+
+
+
+// <!-- CLASE ANGULAR4 -->
+
 // <!-- NOTAS MAS ABAJO PARA LA OPCION DE USAR VARIOS INPUTS, EL BUCLE ESTARÁ EN EL PADRE -->
-
-
-
-
-
 
 
 // SI USAMOS LA OPCION DE VARIOS INPUTS, ESTE METODO QUEDARIA IGUAL

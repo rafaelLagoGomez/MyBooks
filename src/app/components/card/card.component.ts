@@ -16,7 +16,7 @@ import { BooksComponent } from '../../pages/books/books.component';
 
 export class CardComponent {
 
-  @Input() public booksList: Book[] = [];
+  @Input() public book: Book = new Book();
 
 
   @Output() deleteBook = new EventEmitter<number>();
@@ -29,13 +29,16 @@ export class CardComponent {
 
 
 
+
+
+
+
+
+
+
+// <!-- CLASE ANGULAR4 -->
+
 // <!-- NOTAS MAS ABAJO PARA LA OPCION DE USAR VARIOS INPUTS, EL BUCLE ESTARÁ EN EL PADRE -->
-
-
-
-
-
-
 
 
 

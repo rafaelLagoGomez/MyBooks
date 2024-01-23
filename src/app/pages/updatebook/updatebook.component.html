@@ -1,0 +1,33 @@
+
+<div class="row">
+    <div class="card text-bg-secondary mb-3" style="max-width: 25rem; padding-bottom: 10px; gap: 15px">
+        <h4 class="card-header">Modificar Libro</h4>
+        <div class="edit-body">
+            <div class="inputs">
+                <div class="col-md-15">
+                    <input type="text" class="form-control" id="" placeholder="Foto" required #inputFoto>
+                </div>
+                <div class="col-md-15">
+                    <input type="text" class="form-control" id="" placeholder="Titulo" required #inputTitulo>
+                </div>
+                <div class="col-md-15">
+                    <input type="text" class="form-control" id="" placeholder="Autor" required #inputAutor>
+                </div>
+                <div class="col-md-15">
+                    <input type="text" class="form-control" id="" placeholder="Tipo" required #inputTipo>
+                </div>
+                <div class="col-md-15">
+                    <input type="text" class="form-control" id="" placeholder="Precio" required #inputPrecio>
+                </div>
+                <div class="col-md-15">
+                    <input type="text" class="form-control" id="" placeholder="Código Libro" required #inputCodigo>
+                </div>
+            </div>
+            <br>
+            <div class="col-12">
+                <button (click)="updateBook(inputFoto, inputTitulo, inputAutor, inputTipo, inputPrecio, inputCodigo)" class="btn btn-success" type="submit">Modificar Datos</button>
+            </div>
+        </div>
+    </div>
+
+</div>
