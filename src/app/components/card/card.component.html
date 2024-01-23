@@ -1,6 +1,5 @@
 
 <div class="cards" style="gap: 20px; margin-top: 20px">
-    @for(book of booksList; track book.title; let even = $even; let odd = $odd){
 
         <div class="card" style="width: 12rem;">
             <button type="button" class="btn-close" aria-label="Close" (click)="sendIdDeleteBook(book.id_book)"></button>
@@ -11,16 +10,16 @@
                 <p class="card-text">{{book.type}}</p>
                 <p class="card-text">{{book.id_book | referencia}}</p>
                 <p class="card-text">{{book.price}} €</p>
-                <a class="btn btn-primary" [ngClass]="{'even-class': even, 'odd-class': odd}">Comprar</a>
+                <a class="btn btn-success">Comprar</a>
+                <!-- <a class="btn btn-primary" [ngClass]="{'even-class': even, 'odd-class': odd}">Comprar</a> -->
             </div>
         </div>
-
-    } @empty {
-        <div class="alert alert-danger" role="alert">
-            Vaya! Parece que no tienes ningún libro añadido.
-        </div>
-    }
+        
 </div>
+
+
+
+
 
 
 

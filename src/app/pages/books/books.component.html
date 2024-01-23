@@ -2,9 +2,13 @@
 <div class="row">
 
     <div class="cards" style="gap: 20px; margin-top: 20px">
-
-            <app-card [booksList]="books" (deleteBook)="bookDeleted($event)"></app-card> 
-
+        @for(book of books; track book.title; let even = $even; let odd = $odd){
+            <app-card [book]="book" (deleteBook)="bookDeleted($event)"></app-card>
+        } @empty {
+            <div class="alert alert-danger" role="alert">
+                Vaya! Parece que no tienes ningún libro añadido.
+            </div>
+        }
     </div>
 
 
@@ -33,7 +37,7 @@
             </div>
             <br>
             <div class="col-12">
-                <button (click)="addNewBook(inputFoto, inputTitulo, inputAutor, inputTipo, inputPrecio, inputCodigo)" class="btn btn-primary" type="submit">Insertar Libro</button>
+                <button (click)="addNewBook(inputFoto, inputTitulo, inputAutor, inputTipo, inputPrecio, inputCodigo)" class="btn btn-dark" type="submit">Insertar Libro</button>
             </div>
         </div>
     </div> 
@@ -41,28 +45,3 @@
 </div>
 
 
-
-
-
-<!-- NOTAS MAS ABAJO PARA LA OPCION DE USAR VARIOS INPUTS, EL BUCLE ESTARÁ EN EL PADRE -->
-
-
-
-
-
-
-
-
-
-<!-- OPCION SI EL BUCLE ESTUVIERA EN BOOKS EN VEZ DE EN LA CARD: -->
-<!-- <div class="cards" style="gap: 20px; margin-top: 20px">
-        @for(book of books; track book.title; let even = $even; let odd = $odd){
-
-            <app-card [img]="book.photo" [title]="book.title" [author]="book.author" [type]="book.type" [id_book]="book.id_book" [price]="book.price"  (deleteBook)="bookDeleted($event)"></app-card>
-            
-        } @empty {
-            <div class="alert alert-danger" role="alert">
-                Vaya! Parece que no tienes ningún libro añadido.
-            </div>
-        }
-    </div> -->

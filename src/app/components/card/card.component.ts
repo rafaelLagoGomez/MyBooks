@@ -16,7 +16,7 @@ import { BooksComponent } from '../../pages/books/books.component';
 
 export class CardComponent {
 
-  @Input() public booksList: Book[] = [];
+  @Input() public book: Book = new Book();
 
 
   @Output() deleteBook = new EventEmitter<number>();
