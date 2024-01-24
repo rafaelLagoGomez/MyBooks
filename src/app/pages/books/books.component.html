@@ -7,7 +7,7 @@
             <input type="text" class="form-control" id="" placeholder="Nº de referencia" required #inputId>
         </div>
         @if(findedBook) {
-            <div class="container card" style="width: 12rem;">
+            <div class="container card" style="width: 12rem; margin-bottom: 35px;">
                 <img src="{{findedBook.photo}}" class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">{{findedBook.title}}</h5>
@@ -25,16 +25,17 @@
     </div>
 
 
-    <div class="cards" style="gap: 20px; margin-bottom: 35px;">
-        @for(book of books; track book.title; let even = $even; let odd = $odd){
-            <app-card [book]="book" (deleteBook)="bookToDelete($event)"></app-card>
-        } @empty {
-            <div class="alert alert-danger" role="alert">
-                Vaya! Parece que no tienes ningún libro añadido.
-            </div>
-        }
-    </div>
-
+    @if(!findedBook){
+        <div class="cards" style="gap: 20px; margin-bottom: 35px;">
+            @for(book of books; track book.title; let even = $even; let odd = $odd){
+                <app-card [book]="book" (deleteBook)="bookToDelete($event)"></app-card>
+            } @empty {
+                <div class="alert alert-danger" role="alert">
+                    Vaya! Parece que no tienes ningún libro añadido.
+                </div>
+            }
+        </div>
+    }
 </div>
 
 
