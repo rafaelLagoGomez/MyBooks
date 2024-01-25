@@ -54,8 +54,18 @@ export class BooksService {
   }
 
 
-  public getOne(id_book: number): Book | undefined {
-    return this.books.find(book => book.id_book === id_book);
+  // Para que solo tenga que usar una variable en el controlador books
+  // aquí vamos a crear el método de getOne para que siempre me devuelva
+  // un array, o vacio o de 1 libro, así no da error el tipado
+  // El metodo getOne siempre me  va devolver un array.
+  
+  public getOne(id_book: number): Book[] | [] {
+    const book = this.books.find(book => book.id_book === id_book);
+    if(book) {
+      return [book]
+    } else {
+      return [];
+    }
   }
 
   
