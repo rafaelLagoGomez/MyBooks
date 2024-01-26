@@ -14,7 +14,7 @@
                 <app-card [book]="book" (deleteBook)="bookToDelete($event)"></app-card>
             } @empty {
                 <div class="alert alert-danger" role="alert">
-                    Vaya! Parece que no tienes ningún libro añadido.
+                    {{textWarning}}
                 </div>
             }
         </div>

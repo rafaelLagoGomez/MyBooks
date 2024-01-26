@@ -18,20 +18,25 @@ export class BooksComponent {
 
   public books: Book [] = [];
 
+  public textWarning: string = "";
+
    
   constructor (private readonly booksService: BooksService) {}
 
 
   ngOnInit() {
     this.books = this.booksService.getAll()
+    this.textWarning = "Vaya! Parece que no tienes ningún libro añadido."
   }
 
 
   public findBook(inputId: HTMLInputElement) {
     if(inputId.value === "") {
       this.books = this.booksService.getAll()
+      this.textWarning = "Vaya! Parece que no tienes ningún libro añadido."
     } else { 
       this.books = this.booksService.getOne(Number(inputId.value));
+      this.textWarning = "Vaya! Ese nº de referencia no existe."
     } 
   }
 
@@ -52,7 +57,7 @@ export class BooksComponent {
 
 // Ver video de clase de Jorge por si queremos hacerlo con la opcion de que un input nos 
 // muestre el usuario/libro en concreto sin que se borre la lista, o que si no 
-// existe ese id nos lance mensaje de que no hoy libro con ese id
+// existe ese id nos lance mensaje de que "no hay libro con ese id"
 //     Esto dentro del findbook:
     // if(book) {
     //   this.findedBook = book;
