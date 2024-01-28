@@ -1,0 +1,61 @@
+
+<div class="row">
+
+    <div class="card text-bg-light mb-3" style="max-width: 35rem; padding-bottom: 10px; gap: 15px">
+        <h6 class="card-header" style="margin-top: 20px">LOGIN</h6>
+
+        <form [formGroup]="reactiveForm" (ngSubmit)="reactiveSubmit()">
+
+            <div class="edit-body">
+                <div class="inputs">
+
+                    <div class="col-md-15">
+                        <label>Email</label> 
+                        <input type="email" formControlName="email" class="form-control" id="" placeholder="Email">
+
+                        @if ( (reactiveForm.get('email')?.dirty || reactiveForm.get('email')?.touched) && reactiveForm.get('email')?.invalid)  {
+                            @if (reactiveForm.get('email')?.hasError('required'))  {
+                              <div >
+                                <p class="cssError">*Campo obligatorio</p>
+                              </div>
+                            }
+                            @if (reactiveForm.get('email')?.hasError('email'))  {
+                              <div >
+                                <p class="cssError">*Formato email incorrecto</p>
+                              </div>
+                            }
+                          }
+
+                    </div>
+
+                    <div class="col-md-15">
+                        <label>Password</label>
+                        <input type="password" formControlName="password" class="form-control" id="" placeholder="Password">
+
+                        @if ( (reactiveForm.get('password')?.dirty || reactiveForm.get('password')?.touched) && reactiveForm.get('password')?.invalid)  {
+                            @if (reactiveForm.get('password')?.hasError('required'))  {
+                              <div >
+                                <p class="cssError">*Campo obligatorio</p>
+                              </div>
+                            }
+                            @if (reactiveForm.get('password')?.hasError('minlength'))  {
+                              <div >
+                                <p class="cssError">*Mínimo 5 caracteres</p>
+                              </div>
+                            }
+                          }
+
+                    </div>
+                    
+                </div>
+                <br>
+                <div class="col-12">
+                    <button [disabled]="reactiveForm.invalid" class="btn btn-success" type="submit">Submit</button>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>

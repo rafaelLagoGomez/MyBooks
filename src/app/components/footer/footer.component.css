@@ -7,6 +7,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* background-color: transparent;
+    position: fixed; */
     /* margin-top: 35px; */
     /* gap: 5px; */
 }

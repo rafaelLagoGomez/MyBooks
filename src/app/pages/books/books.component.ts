@@ -55,20 +55,6 @@ export class BooksComponent {
 
 
 
-// Ver video de clase de Jorge por si queremos hacerlo con la opcion de que un input nos 
-// muestre el usuario/libro en concreto sin que se borre la lista, o que si no 
-// existe ese id nos lance mensaje de que "no hay libro con ese id"
-//     Esto dentro del findbook:
-    // if(book) {
-    //   this.findedBook = book;
-    //   this.noBook =  "";
-    // } else {
-    //   this.findedBook = undefined;
-    //   this.noBook = "No se ha encontrado ningún libro con ese Nº de Referencia";
-    // }
-
-
-
 
 
 

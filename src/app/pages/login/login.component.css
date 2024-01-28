@@ -1,11 +1,13 @@
 
-.container-register{
+
+.container-login {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    background: url("../../../assets/fondoregister2.jpg");
+    background: url("../../../assets/fondologin.jpg");
     background-size: cover;
     width: 100vw;
     height: 100vh;
+
 }

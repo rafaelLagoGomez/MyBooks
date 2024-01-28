@@ -1,5 +1,127 @@
 
-<form class="column g-3 needs-validation" novalidate>
+<div class="row">
+
+    <div class="card text-bg-light mb-3" style="max-width: 35rem; padding-bottom: 10px; gap: 15px">
+        <h6 class="card-header" style="margin-top: 20px">REGISTRATE</h6>
+
+        <form [formGroup]="reactiveForm" (ngSubmit)="registerSubmit()">
+
+            <div class="edit-body">
+                <div class="inputs">
+
+                    <div class="col-md-15">
+                        <label>Nombre</label> 
+                        <input type="text" formControlName="name" class="form-control" id="" placeholder="Nombre">
+                        @if ( (reactiveForm.get('name')?.dirty || reactiveForm.get('name')?.touched) && reactiveForm.get('name')?.invalid)  {
+                            @if (reactiveForm.get('name')?.hasError('required'))  {
+                              <div >
+                                <p class="cssError">*Campo obligatorio</p>
+                              </div>
+                            }
+                        }
+                    </div>
+
+                    <div class="col-md-15">
+                        <label>Apellido</label> 
+                        <input type="text" formControlName="last_name" class="form-control" id="" placeholder="Apellido">
+                        @if ( (reactiveForm.get('last_name')?.dirty || reactiveForm.get('last_name')?.touched) && reactiveForm.get('last_name')?.invalid)  {
+                            @if (reactiveForm.get('last_name')?.hasError('required'))  {
+                              <div >
+                                <p class="cssError">*Campo obligatorio</p>
+                              </div>
+                            }
+                        }
+                    </div>
+
+                    <div class="col-md-15">
+                        <label>Email</label> 
+                        <input type="text" formControlName="email" class="form-control" id="" placeholder="email">
+
+                        @if ( (reactiveForm.get('email')?.dirty || reactiveForm.get('email')?.touched) && reactiveForm.get('email')?.invalid)  {
+                            @if (reactiveForm.get('email')?.hasError('required'))  {
+                              <div >
+                                <p class="cssError">*Campo obligatorio</p>
+                              </div>
+                            }
+                            @if (reactiveForm.get('email')?.hasError('email'))  {
+                              <div >
+                                <p class="cssError">*Formato email incorrecto</p>
+                              </div>
+                            }
+                          }
+                    </div>
+
+                    <div class="col-md-15">
+                        <label>URL</label> 
+                        <input type="text" formControlName="photo" class="form-control" id="" placeholder="Foto">
+                        @if ( (reactiveForm.get('photo')?.dirty || reactiveForm.get('photo')?.touched) && reactiveForm.get('photo')?.invalid)  {
+                            @if (reactiveForm.get('photo')?.hasError('required'))  {
+                              <div >
+                                <p class="cssError">*Campo obligatorio</p>
+                              </div>
+                            }
+                        }
+                    </div>
+
+                    <div class="col-md-15">
+                        <label>Password</label>
+                        <input type="password" formControlName="password" class="form-control" id="" placeholder="Password">
+
+                        @if ( (reactiveForm.get('password')?.dirty || reactiveForm.get('password')?.touched) && reactiveForm.get('password')?.invalid)  {
+                            @if (reactiveForm.get('password')?.hasError('required'))  {
+                              <div >
+                                <p class="cssError">*Campo obligatorio</p>
+                              </div>
+                            }
+                            @if (reactiveForm.get('password')?.hasError('minlength'))  {
+                              <div >
+                                <p class="cssError">*Mínimo 5 caracteres</p>
+                              </div>
+                            }
+                          }
+                    </div>
+
+                    <div class="col-md-15">
+                        <label>Repeat Password</label>
+                        <input type="password" formControlName="password" class="form-control" id="" placeholder="Repeat Password">
+
+                        @if ( (reactiveForm.get('password')?.dirty || reactiveForm.get('password')?.touched) && reactiveForm.get('password')?.invalid)  {
+                            @if (reactiveForm.get('password')?.hasError('required'))  {
+                              <div >
+                                <p class="cssError">*Campo obligatorio</p>
+                              </div>
+                            }
+                          }
+                    </div>
+                    
+                </div>
+                <br>
+                <div class="col-12">
+                    <button [disabled]="reactiveForm.invalid" class="btn btn-success" type="submit">Submit</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- ANTIGUO FORM ANTES DE CLASE6 DE FORMULARIOS -->
+
+<!-- <form class="column g-3 needs-validation" novalidate>
     <br>
     <p class="regis">REGISTRATE</p>
     <div class="col-md-4 position-relative">
@@ -38,6 +160,8 @@
     </div>
     
     <div class="col-12">
-        <button class="btn btn-primary" type="submit">Registrarse</button>
+        <button class="btn btn-success" type="submit">Registrarse</button>
     </div>
-</form>
+</form> -->
+
+

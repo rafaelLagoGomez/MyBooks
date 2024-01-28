@@ -1,15 +1,13 @@
 
 .row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     background: url("../../../assets/fondolibreria.jpg");
-    opacity: 0.9;
     background-size: cover;
     width: 100vw;
     height: 100vh;
-    display: flex;
-    /* flex-direction: column; */
-    justify-content: center;
-    align-items: center;
-    /* gap: 800px; */
 }
 
 .texthome{
