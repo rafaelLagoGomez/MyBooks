@@ -17,33 +17,64 @@ import { BooksService } from '../../services/books.service';
 export class BooksComponent {
 
   public books: Book [] = [];
-
   public textWarning: string = "";
 
-   
-  constructor (private readonly booksService: BooksService) {}
+  constructor (private readonly booksService: BooksService) {
+    this.booksService.getAllApi().subscribe((data:any) => {
+      console.log(data);
+      this.books = data.res;
+    })
+  }
 
 
   ngOnInit() {
-    this.books = this.booksService.getAll()
+    // this.books = this.booksService.getAll() -----> es cuando no hay API y usamos el service
     this.textWarning = "Vaya! Parece que no tienes ningún libro añadido."
   }
 
 
   public findBook(inputId: HTMLInputElement) {
     if(inputId.value === "") {
-      this.books = this.booksService.getAll()
+      this.booksService.getAllApi().subscribe((data:any) => {
+        console.log(data);
+        this.books = data.res;
+      })
       this.textWarning = "Vaya! Parece que no tienes ningún libro añadido."
     } else { 
-      this.books = this.booksService.getOne(Number(inputId.value));
+      this.booksService.getOneApi(Number(inputId.value)).subscribe((data:any) => {
+        console.log(data);
+        this.books = data.res;
+      })
       this.textWarning = "Vaya! Ese nº de referencia no existe."
     } 
   }
 
 
   public bookToDelete(id_book: number) {
-    this.booksService.delete(id_book);
+    // this.booksService.delete(id_book);   -----> es cuando no hay API y usamos el service
+    this.booksService.deleteApi(id_book).subscribe((data:any) => {
+      console.log(data);
+      this.books = data.books;
+    })
   }
+
+
+
+
+
+
+  
+
+  // METODO FIND SIN API, USANDO SERVICE
+  // public findBook(inputId: HTMLInputElement) {
+  //   if(inputId.value === "") {
+  //     this.books = this.booksService.getAll()
+  //     this.textWarning = "Vaya! Parece que no tienes ningún libro añadido."
+  //   } else { 
+  //     this.books = this.booksService.getOne(Number(inputId.value));
+  //     this.textWarning = "Vaya! Ese nº de referencia no existe."
+  //   } 
+  // }
 }
 
 

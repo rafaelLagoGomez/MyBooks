@@ -26,7 +26,10 @@ export class AddbookComponent {
       price: parseFloat(inputPrecio.value),
       photo: inputFoto.value
     }
-    this.booksService.add(newBooks)
+    // this.booksService.add(newBooks)  -----> es cuando no hay API
+    this.booksService.addApi(newBooks).subscribe((data) => {
+      console.log(data);
+    })
     this.router.navigateByUrl("/books");
   }
 }

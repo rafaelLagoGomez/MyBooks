@@ -26,7 +26,10 @@ export class UpdatebookComponent {
       price: parseFloat(inputPrecio.value),
       photo: inputFoto.value
     }
-    this.booksService.edit(updatedBook)
+    // this.booksService.edit(updatedBook);   -----> es cuando no hay API
+    this.booksService.updateApi(updatedBook).subscribe((data) => {
+      console.log(data);
+    })
     this.router.navigateByUrl("/books");
   }
 }

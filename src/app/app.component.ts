@@ -7,11 +7,20 @@ import { HomeComponent } from './pages/home/home.component';
 import { FormRegisterComponent } from './components/form-register/form-register.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { CardComponent } from './components/card/card.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, HeaderComponent, FooterComponent, HomeComponent, FormRegisterComponent, RegisterComponent],
+  imports: [
+    CommonModule, 
+    RouterOutlet, 
+    HeaderComponent, 
+    FooterComponent, 
+    HomeComponent, 
+    FormRegisterComponent, 
+    RegisterComponent, 
+    HttpClientModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
